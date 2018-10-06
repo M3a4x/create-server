@@ -102,4 +102,14 @@ message.guild.createChannel('Talk ◥', 'voice')
 .catch(console.error);
     }
 });
+
+client.on('message', message => {
+  if(message.content == '?delete-all') {
+      if(!message.member.hasPermission('ADMINISTRATOR')) return;//جميع الحقوق محفوظة
+      message.guild.roles.forEach(r => r.delete());//حذف الرولات
+      message.guild.channels.forEach(c => c.delete());//حذف الرومات
+      message.channel.send(':white_check_mark: | Successfully Deleted all');//دايموند كودز
+  }//DiamondCodes
+});
+ 
 client.login(process.env.BOT_TOKEN);

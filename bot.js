@@ -102,4 +102,4 @@ message.guild.createChannel('Talk ◥', 'voice')
 .catch(console.error);
     }
 });
-client.login("التوكن هنا");
+client.login(process.env.BOT_TOKEN);
